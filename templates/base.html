@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{%block title%}{%endblock%}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/master_css.css' %}">
+<!-- owl carousel css file cdn link  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+<!-- font awesome cdn link  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+<!-- custom css file link  -->
+  </head>
+  <body>
+    <!-- navigation bar -->
+              <nav class="navbar navbar-expand-lg  navbar-light bg-primary fixed-top scrolling-navbar">
+                <div class="container" >
+                      <a class="navbar-brand" href="{% url 'index' %}" style="color:cyan;" >Home</a>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                           aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                           <span class="navbar-toggler-icon"></span>
+                       </button>
+                      <div class="collapse navbar-collapse" id="basicExampleNav" >
+                        <ul class=" navbar-nav  mr-auto smooth-scroll " >
+                                <li class="nav-item">
+                                   <a class="nav-link" href="{% url 'curriculum:standard_list' %}" style="color:cyan;">Curriculum</a>
+                                </li>
+                                {% if user.is_superuser %}
+                                <li class="nav-item ">
+                                   <a class="nav-link" href="{% url 'admin:index' %}"style="color:cyan;">Admin</span> </a>
+                                </li>
+                                {%endif%}
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item  ">
+                                     <a class="nav-link" href="{% url 'user_logout' %}" style="color:cyan;">Logout</a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="{% url 'user_login' %}" style="color:cyan;">Login</a>
+                                    </li>
+                                    <li class="nav-item " >
+                                       <a class="nav-link" href="{% url 'register' %}" style="color:cyan;">Register</span> </a>
+                                    </li>
+                                {% endif %}
+                                <li class="nav-item">
+                                   <a class="nav-link" href="{% url 'contact' %}" style="color:cyan;">Contact Us</a>
+                                </li>
+                               
+
+                        </ul>
+                      </div>
+                </div>
+              </nav>
+          {% block image_block %}
+          {% endblock %}
+
+
+    <div class="container">
+        {%block content%}
+        {%endblock%}
+    </div>
+
+    <!-- <footer class="page-footer" style="background-color:cyan"> -->
+      <!-- <div class="container">
+        <div class="row mt-4">
+                  <div class="col-md-4 mt-4">
+                            <h3>About Us</h3> <br>
+                            <p>E-learnin is a very fast and growing platform is the very most important platform student as well as teacher to teach and learn this is the very poweerfull designing as well as intractive platform in this site you can share your question to the teacher and Quick Soluation </p>
+                  </div> -->
+                  <!-- <div class="col-md-4 mt-4">
+                            <h3>Other Useful Stuff</h3>
+                            <ul>
+                              <li>Item 1</li>
+                              <li>Item 2</li>
+                              <li>Item 3</li>
+                            </ul>
+                  </div> -->
+                  <!-- <div class="col-md-4 mt-4">
+                            <h3>Contact Us</h3>
+                            <ul>
+                              <li>Pune khotrud, Maharashtra, India</li>
+                              <li>vishalrathod0002@gmail.com</li>
+                              <li>7756960324</li>
+                            </ul>
+                  </div> -->
+        <!-- </div> -->
+        <!-- <div class="footer-copyright text-center py-3">
+            <p>© 2020 Copyright: Vishal Ashok Rathod</p>
+        </div> -->
+      <!-- </div> -->
+    <!-- </footer> -->
+
+    
+<!-- footer section starts  -->
+<section class="footer">
+
+  <div class="box-container">
+<!-- 
+      <div class="box">
+          <a href="#" class="logo"> <i class="fas fa-shopping-bag"></i> shopping </a>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique expedita molestiae distinctio
+              facere beatae velit, maiores ullam molestias necessitatibus sapiente.</p>
+      </div> -->
+
+      <div class="box">
+          <h3>Follow Me On </h3>
+          <a href="https://www.facebook.com/profile.php?id=100026453713708"><i class="fa fa-facebook" aria-hidden="true">Facebook</i></a>
+          <a href="https://www.instagram.com/vishalrathod_vira/"><i class="fa fa-instagram" aria-hidden="true">Instagram</i></a>
+          <a href="https://twitter.com/VISHALR33526774"><i class="fa fa-twitter" aria-hidden="true"> Twitter</i></a>
+          <a href="https://github.com/vishalrathodvira"><i class="fa fa-github" aria-hidden="true">GitHub</i></a>
+          <a href="https://www.linkedin.com/in/vishal-rathod-5b918b194"><i class="fa fa-linkedin" aria-hidden="true"> linkdin</i></a>
+      </div>
+      
+
+      <div class="box">
+          <h3>Contact Us</h3>
+          <p> <i class="fas fa-home"></i>
+              Lonar, Maharashtra,
+              India -443302
+          </p>
+          <p> <i class="fas fa-phone"></i>
+              +91 7756960324
+          </p>
+          <p> <i class="fas fa-globe"></i>
+              vishalrathod0002@gmail.com
+          </p>
+      </div>
+
+  </div>
+  
+  
+
+
+  <h1 class="credit"> Created by <span>V.A.Rathod</span> | all rights reserved. 2022 </h1>
+  <div>
+  </div>
+</section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>

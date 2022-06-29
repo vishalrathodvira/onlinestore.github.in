@@ -1,0 +1,12 @@
+
+
+**Developed By Vishal Ashok Rathod Python FullStack Developer**
+all copyright Reserved By Mr Vishal Rathod 2022
+
+**Instructions**
+create your own dataabase
+-make database migrations: python manage.py makemigrations
+- python manage.py migrate
+- And finally, run the application: python manage.py runserver
+
+For Admin Account, please create one with superuser!
